@@ -1,0 +1,59 @@
+ package com.capgemini.model;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="donation_box")
+public class DonationBox {
+	@Id
+	@Column(name="ngo_Name")
+	private String ngoName;
+	@Column(name="registration_Number")
+	private String registrationNumber;
+	@Column(name="account_Number")
+	private String accountNumber;
+	@Column(name="total_Collection")
+	private double totalCollection;
+	
+	public DonationBox() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	public DonationBox(String ngoName, String registrationNumber, String accountNumber, double totalCollection) {
+		
+		this.ngoName = ngoName;
+		this.registrationNumber = registrationNumber;
+		this.accountNumber = accountNumber;
+		this.totalCollection = totalCollection;
+	}
+	public String getNgoName() {
+		return ngoName;
+	}
+	public void setNgoName(String ngoName) {
+		this.ngoName = ngoName;
+	}
+	public String getRegistrationNumber() {
+		return registrationNumber;
+	}
+	public void setRegistrationNumber(String registrationNumber) {
+		this.registrationNumber = registrationNumber;
+	}
+	public String getAccountNumber() {
+		return accountNumber;
+	}
+	public void setAccountNumber(String accountNumber) {
+		this.accountNumber = accountNumber;
+	}
+	public double getTotalCollection() {
+		return totalCollection;
+	}
+	public void setTotalCollection(double totalCollection) {
+		this.totalCollection = totalCollection;
+	}
+	
+
+}
