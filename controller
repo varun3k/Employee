@@ -1,0 +1,46 @@
+package com.capgemini.controller;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.capgemini.model.NeedyPeople;
+import com.capgemini.service.EmployeeService;
+@RestController
+@RequestMapping("/Employee")
+public class EmployeeController {
+	@Autowired
+	EmployeeService employeeService;
+	
+	
+	  @PostMapping("/add") public boolean addNeedyPerson(@RequestBody NeedyPeople
+	  person) { return employeeService.addNeedyPerson(person); }
+	  
+	  @GetMapping("/get/all") public List<NeedyPeople> findAllNeedyPeople(){ return
+	  employeeService.findAllNeedyPeople(); }
+	  
+	  @GetMapping("/get/{id}") public Optional<NeedyPeople> findNeedyPeopleById(@PathVariable
+	  int id) 
+	  { 
+		  return employeeService.findNeedyPeopleById(id); 
+	  }
+	  
+	  @GetMapping("/get/{name}") public List<NeedyPeople>
+	  findNeedyPeopleByName(@PathVariable String name){ return
+	  employeeService.findNeedyPeopleByName(name); }
+	  
+	  @DeleteMapping("/delete/{person}") public boolean
+	  removeNeedyPerson(@PathVariable NeedyPeople person) { return
+	  employeeService.removeNeedyPerson(person); }
+	 
+
+}
