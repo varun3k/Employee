@@ -1,0 +1,76 @@
+package com.capgemini.service;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.capgemini.dao.EmployeeDao;
+import com.capgemini.exception.NoSuchEmployeeException;
+import com.capgemini.model.DonationDistribution;
+import com.capgemini.model.Employee;
+import com.capgemini.model.NeedyPeople;
+
+@Service
+public class EmployeeServiceImpl implements EmployeeService{
+	@Autowired
+	EmployeeDao employeeDao;
+
+	@Override
+	public boolean login(Employee employee) throws NoSuchEmployeeException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean addNeedyPerson(NeedyPeople person) {
+		// TODO Auto-generated method stub
+		
+		  if(employeeDao.save(person)!=null) { return true; } return false;		
+	}
+
+	@Override
+	public boolean removeNeedyPerson(NeedyPeople person) {
+		
+		// TODO Auto-generated method stub
+		
+		return false;
+	}
+
+	@Override
+	public Optional<NeedyPeople> findNeedyPeopleById(int id) {
+		// TODO Auto-generated method stub
+		return employeeDao.findById(id);
+	}
+
+	@Override
+	public List<NeedyPeople> findNeedyPeopleByName(String name) {
+		// TODO Auto-generated method stub
+		if(employeeDao.equals(name))
+		{
+			return employeeDao.findAll();
+		}
+		return List<NeedyPeople>();
+	}
+
+	@Override
+	public List<NeedyPeople> findAllNeedyPeople() {
+		// TODO Auto-generated method stub
+		return employeeDao.findAll();
+	}
+
+	@Override
+	public String helpNeedyPerson(DonationDistribution distribute) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+
+
+}
+
+	
