@@ -1,0 +1,181 @@
+package com.capgemini.model;
+
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.Type;
+
+
+
+@Entity
+@Table(name="donation_distribution")
+public class DonationDistribution {
+	@Id
+	@Column(name="distribution_Id")
+	private int distributionId;
+	
+	@Column(name="amount_Distributed")
+	private double amountDistributed;
+	@Column(name="date_Of_Distribution")
+	private Date dateOfDistribution;
+	@Column(name="approval_Or_Rejected_Date")
+	private Date approvalOrRejectedDate;
+	@Enumerated(EnumType.STRING)
+	@Type(type="com.capgemini.model.DonationDistributionStatus")
+	private DonationDistributionStatus status;
+	@OneToOne
+	@JoinColumn(name="item_id")
+	private DonationItem donationItem;
+	@OneToOne
+	@JoinColumn(name="needy_person_id")
+	private NeedyPeople needyPeople;
+	@OneToOne
+	@JoinColumn(name="employee_id")
+	private Employee employee;
+	
+	
+	
+	
+	public DonationDistribution() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	public DonationDistribution(int distributionId, double amountDistributed, Date dateOfDistribution,
+			Date approvalOrRejectedDate, DonationDistributionStatus status, DonationItem donationItem,
+			NeedyPeople needyPeople, Employee employee) {
+		super();
+		this.distributionId = distributionId;
+		this.amountDistributed = amountDistributed;
+		this.dateOfDistribution = dateOfDistribution;
+		this.approvalOrRejectedDate = approvalOrRejectedDate;
+		this.status = status;
+		this.donationItem = donationItem;
+		this.needyPeople = needyPeople;
+		this.employee = employee;
+	}
+
+
+
+
+
+	public int getDistributionId() {
+		return distributionId;
+	}
+
+
+
+
+	public void setDistributionId(int distributionId) {
+		this.distributionId = distributionId;
+	}
+
+
+
+
+	public double getAmountDistributed() {
+		return amountDistributed;
+	}
+
+
+
+
+	public void setAmountDistributed(double amountDistributed) {
+		this.amountDistributed = amountDistributed;
+	}
+
+
+
+
+	public Date getDateOfDistribution() {
+		return dateOfDistribution;
+	}
+
+
+
+
+	public void setDateOfDistribution(Date dateOfDistribution) {
+		this.dateOfDistribution = dateOfDistribution;
+	}
+
+
+
+
+	public Date getApprovalOrRejectedDate() {
+		return approvalOrRejectedDate;
+	}
+
+
+
+
+	public void setApprovalOrRejectedDate(Date approvalOrRejectedDate) {
+		this.approvalOrRejectedDate = approvalOrRejectedDate;
+	}
+
+
+
+
+	public DonationDistributionStatus getStatus() {
+		return status;
+	}
+
+
+
+
+	public void setStatus(DonationDistributionStatus status) {
+		this.status = status;
+	}
+
+
+
+
+	public DonationItem getDonationItem() {
+		return donationItem;
+	}
+
+
+
+
+	public void setDonationItem(DonationItem donationItem) {
+		this.donationItem = donationItem;
+	}
+
+
+
+
+	public NeedyPeople getNeedyPeople() {
+		return needyPeople;
+	}
+
+
+
+
+	public void setNeedyPeople(NeedyPeople needyPeople) {
+		this.needyPeople = needyPeople;
+	}
+
+
+
+
+	public Employee getEmployee() {
+		return employee;
+	}
+
+
+
+
+	public void setEmployee(Employee employee) {
+		this.employee = employee;
+	}
+
+		
+}
+	
