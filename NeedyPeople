@@ -1,0 +1,84 @@
+package com.capgemini.model;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="needy_people")
+public class NeedyPeople {
+	@Id
+	@Column(name="needyPersonId")
+	int needyPersonId;
+	@Column(name="needyPersonName")
+	String needyPersonName;
+	@Column(name=" phone")
+	String phone;
+	@Column(name="familyIncome")
+	double familyIncome;
+	@OneToOne
+	@JoinColumn(name="address_id")
+	private Address address;
+	
+
+	
+	public NeedyPeople() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public NeedyPeople(int needyPersonId, String needyPersonName, String phone, double familyIncome) {
+		this.needyPersonId = needyPersonId;
+		this.needyPersonName = needyPersonName;
+		this.phone = phone;
+		this.familyIncome = familyIncome;
+		
+	}
+
+	public int getNeedyPersonId() {
+		return needyPersonId;
+	}
+
+	public void setNeedyPersonId(int needyPersonId) {
+		this.needyPersonId = needyPersonId;
+	}
+
+	public String getNeedyPersonName() {
+		return needyPersonName;
+	}
+
+	public void setNeedyPersonName(String needyPersonName) {
+		this.needyPersonName = needyPersonName;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public double getFamilyIncome() {
+		return familyIncome;
+	}
+
+	public void setFamilyIncome(double familyIncome) {
+		this.familyIncome = familyIncome;
+	}
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+	
+	
+	
+
+}
