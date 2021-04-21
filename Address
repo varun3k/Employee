@@ -1,0 +1,67 @@
+package com.capgemini.model;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="address")
+public class Address {
+	@Id
+	@Column(name="address_Id")
+	private int addressId;
+	@Column(name="city")
+	private String city;
+	@Column(name="state")
+	private String state;
+	@Column(name="pin")
+	private String pin;
+	@Column(name="landmark")
+	private String landmark;
+	
+	public Address() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	public Address(int addressId, String city, String state, String pin, String landmark) {
+		this.addressId = addressId;
+		this.city = city;
+		this.state = state;
+		this.pin = pin;
+		this.landmark = landmark;
+	}
+	public int getAddressId() {
+		return addressId;
+	}
+	public void setAddressId(int addressId) {
+		this.addressId = addressId;
+	}
+	public String getCity() {
+		return city;
+	}
+	public void setCity(String city) {
+		this.city = city;
+	}
+	public String getState() {
+		return state;
+	}
+	public void setState(String state) {
+		this.state = state;
+	}
+	public String getPin() {
+		return pin;
+	}
+	public void setPin(String pin) {
+		this.pin = pin;
+	}
+	public String getLandmark() {
+		return landmark;
+	}
+	public void setLandmark(String landmark) {
+		this.landmark = landmark;
+	}
+	
+
+}
