@@ -1,0 +1,76 @@
+package com.capgemini.model;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.Type;
+
+@Entity
+@Table(name="donation_item")
+public class DonationItem {
+	@Id
+	@Column(name="item_Id")
+	private int itemId;
+	
+	
+	@Column(name="item_Description")
+	private String itemDescription;
+	
+	@Enumerated(EnumType.STRING)
+	@Type(type="com.capgemini.model.DonationType")
+	private DonationType donationType;
+	
+	public DonationItem() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	
+	public DonationItem(int itemId, String itemDescription) {
+		
+		this.itemId = itemId;
+		
+		this.itemDescription = itemDescription;
+	}
+
+
+	public int getItemId() {
+		return itemId;
+	}
+
+
+	public void setItemId(int itemId) {
+		this.itemId = itemId;
+	}
+
+
+	public String getItemDescription() {
+		return itemDescription;
+	}
+
+
+	public void setItemDescription(String itemDescription) {
+		this.itemDescription = itemDescription;
+	}
+
+
+	public DonationType getDonationType() {
+		return donationType;
+	}
+
+
+	public void setDonationType(DonationType donationType) {
+		this.donationType = donationType;
+	}
+
+
+	
+	
+}
+
+
